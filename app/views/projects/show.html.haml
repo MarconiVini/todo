@@ -1,12 +1,45 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @project.name
-%p
-  %b Github:
-  = @project.github
+%h2= @project.name
+%h4 Todo list
+%p 
+  %b
+    project
+  =link_to @project.github, @project.github, target: "_blank"
+%br
+%br
 
-= link_to 'Edit', edit_project_path(@project)
-\|
-= link_to 'Back', projects_path
+%section.todo
+  %ul.todo-controls
+    %li
+      %a.icon-add "Add"
+    %li
+      %a.icon-delete "Delete"
+    %li.right
+      %a.icon-settings Settings
+
+  %ul.todo-list
+    %li.done
+      %a.toggle 
+      Encontre uma ideia
+    %li
+      %a.toggle 
+      Construa
+    %li
+      %a.toggle 
+      faça!
+
+  %ul.todo-pagination
+    %li.previous
+      %span
+        %i.icon-previous 
+        Anterior
+      
+    %li.next
+      %a
+        Next
+        %i.icon-next
+
+%br
+%br
+%br
