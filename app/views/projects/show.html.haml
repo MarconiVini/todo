@@ -17,7 +17,7 @@
       %a.icon-settings Settings
 
   %ul.todo-list
-    -@project.todo_lists.each do |todo|
+    -@project.ordered_todo_lists.each do |todo|
       %li{class: (todo.finished? ? "done" : "not-done")}
         %a.toggle 
         =todo.todo
