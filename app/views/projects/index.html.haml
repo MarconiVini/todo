@@ -1,23 +1,29 @@
-%h1 Listing projects
+%h1 Track your projects
 
-%table.table.table-striped.table-bordered
-  %thead
-    %tr
-      %th Name
-      %th Github
-      %th
-      %th
-      %th
-
-  %tbody
-    - @projects.each do |project|
+- if @projects.length == 0
+  %h3 
+    Start by creating a
+    = link_to 'New Project', new_project_path
+- else
+  %table.table.table-striped.table-bordered
+    %thead
       %tr
-        %td= project.name
-        %td= project.github
-        %td= link_to 'Show', project
-        %td= link_to 'Edit', edit_project_path(project)
-        %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Name
+        %th Github
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @projects.each do |project|
+        %tr
+          %td= project.name
+          %td= project.github
+          %td= link_to 'Show', project
+          %td= link_to 'Edit', edit_project_path(project)
+          %td= link_to 'Destroy', project, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Project', new_project_path
+  %br
+
+- if @projects.length != 0
+  = link_to 'New Project', new_project_path
