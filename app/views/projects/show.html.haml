@@ -21,9 +21,12 @@
       %li{class: (todo.finished? ? "done" : "not-done")}
         %a.toggle 
         =todo.todo
-    %li
+        %input{type: "hidden", value: todo.project_id, name: "product_id"}
+        %input{type: "hidden", value: todo.id, name: "todo_id"}
+    %li.form
       =form_for([@project, @project.todo_lists.build]) do |f|
         =f.text_field :todo
+
 
   %ul.todo-pagination
     %li.previous

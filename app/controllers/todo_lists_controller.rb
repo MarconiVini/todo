@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_project, only: [:create]
+  before_action :set_project, only: [:create, :update]
 
   # POST /projects
   # POST /projects.json
@@ -19,13 +19,14 @@ class TodoListsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+    @todo = @project.todo_lists.find(params[:id])
+    @todo.finished = !@todo.finished
+
     respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
+      if @todo.save
+        format.json { render json: :ok, status: :ok }
       else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: :error, status: :unprocessable_entity }
       end
     end
   end
