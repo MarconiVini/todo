@@ -1,4 +1,6 @@
 $(function() {
+  $("#todo_list_todo").focus();
+
   $(".todo-list li").on("click", function(){
     var target = $(this);
 
@@ -19,7 +21,6 @@ $(function() {
     });
     function success(data){
       target.toggleClass("done")
-      console.log(target);
     }
   });
 
