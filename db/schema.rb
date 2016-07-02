@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 20160630023339) do
 
   create_table "todo_lists", force: :cascade do |t|
     t.string   "todo"
-    t.boolean  "finished"
+    t.boolean  "finished",   default: false
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "todo_lists", ["project_id"], name: "index_todo_lists_on_project_id", using: :btree

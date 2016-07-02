@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :todo_lists
+  end
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
