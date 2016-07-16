@@ -77,6 +77,17 @@
     &:hover {
       background: #F0FBFF;
     }
+
+    article{
+      font-size: 14px;
+      max-width: 80%;
+      float: left;
+    }
+    section{
+      font-size: 12px;
+      float: right;
+      max-width: 20%;
+    }
   }
   .done {
     text-decoration: line-through;
@@ -84,11 +95,7 @@
 
   .toggle {
     display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 35px;
+    width: 45px;
     @include hide-text;
 
     &:before {

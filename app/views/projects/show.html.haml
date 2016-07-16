@@ -19,10 +19,15 @@
   %ul.todo-list
     -@project.ordered_todo_lists.each do |todo|
       %li{class: (todo.finished? ? "done" : "not-done")}
-        %a.toggle 
-        =todo.todo
+        %a.toggle
+        %article
+          =todo.todo
+        %section
+          Published in
+          =distance_of_time_in_words(Time.now, todo.created_at)
         %input{type: "hidden", value: todo.project_id, name: "product_id"}
         %input{type: "hidden", value: todo.id, name: "todo_id"}
+        .clearfix
     %li.form
       =form_for([@project, @project.todo_lists.build]) do |f|
         =f.text_field :todo
