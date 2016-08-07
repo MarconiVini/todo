@@ -1,4 +1,5 @@
-$(function(argument) {
+$(document).on('ready page:load', function () {
+  
   $.fn.bootstrapSwitch.defaults.size = 'mini';
   $.fn.bootstrapSwitch.defaults.onText = 'Show Finished'
   $.fn.bootstrapSwitch.defaults.offText = 'Off'
