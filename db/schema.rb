@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(version: 20160630023339) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.string   "github"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "show_finished", default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "todo_lists", force: :cascade do |t|

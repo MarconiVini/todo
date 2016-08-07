@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :projects do
+    post 'toggle_show_old'
     resources :todo_lists
   end
 

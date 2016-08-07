@@ -61,6 +61,18 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def toggle_show_old
+    project = Project.includes(:todo_lists).find(params[:project_id])
+    project.change_show_status
+    respond_to do |format|
+      if project.save
+        format.json { render json: "ok", status: :ok }
+      else
+        format.json { render json: "fail", status: :fail }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project

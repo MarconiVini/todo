@@ -1,3 +1,5 @@
+%input{type: 'hidden', id: 'project_id', name: 'project_id', value: @project.id}
+%input{type: 'hidden', id: 'show_toggle', name: 'show_toggle', value: @project.show_finished.to_s}
 %h2= @project.name
 %h4 Todo list
 %p 
@@ -13,8 +15,10 @@
       %a.icon-add "Add"
     %li
       %a.icon-delete "Delete"
-    %li.right
+    %li
       %a.icon-settings Settings
+    %li.right
+      %input.toggleswitch{type: 'checkbox'}
 
   %ul.todo-list
     -@project.ordered_todo_lists.each do |todo|
@@ -47,3 +51,4 @@
 %br
 %br
 %br
+

@@ -139,7 +139,7 @@
 
 .todo-controls {
   margin: 0 15px 12px 50px;
-  height: 12px;
+  height: 20px;
 
   li { float: left; }
   li + li { margin-left: 10px; }
@@ -147,7 +147,7 @@
 
   a {
     display: block;
-    margin: 0;
+    margin: 5px 0 0 0;
     opacity: .6;
 
     &:hover { opacity: 1; }
